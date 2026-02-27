@@ -9,30 +9,26 @@ import java.util.*;
 
 public class Timetable {
 
-    private final HashMap<DayOfWeek, TreeMap<TimeOfDay, List<TrainingSession>>> timetable = new HashMap<>();
+    private final Map<DayOfWeek, TreeMap<TimeOfDay, List<TrainingSession>>> timetable = new HashMap<>();
 
     /**
      * Добавление новой тренировочной сессии в расписание
+     * - Если по дню недели добавляемой тренировки вернулся null, то создаем мапу
      * - Если по времени добавляемой тренировки вернулся null, то создаем список
-     * - Если по дню недели добавляемой тренировки вернулся null, то создаем мапу и список
      * - Добавляем в созданный список тренировку
      * - Добавляем в созданную мапу созданный список по времени добавляемой тренировки
      * - Кладем в целевую мапу timetable созданную мапу в данном методе по ключу дня недели
      * @param trainingSession - тренировчная сессия для добавления
      */
     public void addNewTrainingSession(TrainingSession trainingSession) {
-        TreeMap<TimeOfDay, List<TrainingSession>> innerMap = timetable.get(trainingSession.getDayOfWeek());
-        List<TrainingSession> sessions;
-
-        if (innerMap != null) {
-            sessions = innerMap.get(trainingSession.getTimeOfDay());
-            if (sessions == null) {
-                sessions = new ArrayList<>();
-            }
-        } else {
-            sessions = new ArrayList<>();
-            innerMap = new TreeMap<>();
+        if (trainingSession == null) {
+            System.out.println("Параметр тренировочной сессии передаваемый на добавление не может быть null!");
+            return;
         }
+
+        TreeMap<TimeOfDay, List<TrainingSession>> innerMap = timetable.getOrDefault(
+                trainingSession.getDayOfWeek(), new TreeMap<>());
+        List<TrainingSession> sessions = innerMap.getOrDefault(trainingSession.getTimeOfDay(), new ArrayList<>());
 
         sessions.add(trainingSession);
         innerMap.put(trainingSession.getTimeOfDay(), sessions);
