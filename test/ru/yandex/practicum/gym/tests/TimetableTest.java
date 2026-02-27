@@ -1,6 +1,5 @@
 package ru.yandex.practicum.gym.tests;
 
-import org.junit.jupiter.api.BeforeEach;
 import ru.yandex.practicum.gym.Timetable;
 import ru.yandex.practicum.gym.helpers.TestData;
 
@@ -10,9 +9,4 @@ public class TimetableTest extends TestData {
     static final String COACH_ERROR_MESSAGE = "Ожидаемое кол-во тренеров '%d' не соответствует фактическому '%d'";
 
     static Timetable timetable;
-
-    @BeforeEach
-    public void setUp() {
-        timetable = new Timetable();
-    }
 }

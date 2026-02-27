@@ -3,36 +3,43 @@ package ru.yandex.practicum.gym.tests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.gym.Timetable;
 
 import static ru.yandex.practicum.gym.helpers.GeneralAssert.assertEquals;
 
-@DisplayName("Проверка метода получения список тренеров с количеством тренировок упорядоченных в порядке убывания")
+@DisplayName("Проверка метода получения списка тренеров с количеством тренировок упорядоченных в порядке убывания")
 public class GetCountByCoachesTest extends TimetableTest {
 
-    @Override
     @BeforeEach
     public void setUp() {
-        super.setUp();
+        timetable = new Timetable();
     }
 
     @Test
+    @DisplayName("Проверить, что список с количеством тренеров пустой")
     void testGetCountByCoaches() {
-        //Проверить, что список с количеством тренеров пустой
         assertEquals(0, timetable.getCountByCoaches().size(), COACH_ERROR_MESSAGE);
+    }
 
+    @Test
+    @DisplayName("Проверить, что список с количеством тренеров равен 3")
+    void testGetCountByCoaches2() {
         //Добавление тренировок в расписание
         addTrainingSessionData();
 
-        //Проверить, что список с количеством тренеров равен 3
         assertEquals(3, timetable.getCountByCoaches().size(), COACH_ERROR_MESSAGE);
+    }
 
-        //Проверить, что первый тренер в списке имеет 3 тренировки
+    @Test
+    @DisplayName("Проверить, что тренеры отсортированы в списке по убыванию кол-ва тренировок")
+    void testGetCountByCoaches3() {
+        //Добавление тренировок в расписание
+        addTrainingSessionData();
+
         assertEquals(3, timetable.getCountByCoaches().getFirst().getTrainingsQuantity(),
                 QUANTITY_ERROR_MESSAGE);
-        //Проверить, что второй тренер в списке имеет 2 тренировки
         assertEquals(2, timetable.getCountByCoaches().get(1).getTrainingsQuantity(),
                 QUANTITY_ERROR_MESSAGE);
-        //Проверить, что третий тренер в списке имеет 1 тренировку
         assertEquals(1, timetable.getCountByCoaches().getLast().getTrainingsQuantity(),
                 QUANTITY_ERROR_MESSAGE);
     }
