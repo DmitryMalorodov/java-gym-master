@@ -88,7 +88,7 @@ public class Timetable {
                     if (result.containsKey(coach)) {
                         result.get(coach).incrementTrainQuantity();
                     } else {
-                        result.put(coach, new CounterOfTrainings(coach));
+                        result.put(coach, new CounterOfTrainings(coach).incrementTrainQuantity());
                     }
                 }
             }

@@ -4,11 +4,10 @@ import ru.yandex.practicum.gym.dto.Coach;
 
 public class CounterOfTrainings implements Comparable<CounterOfTrainings> {
     private final Coach coach;
-    private Integer trainingsQuantity;
+    private int trainingsQuantity;
 
     public CounterOfTrainings(Coach coach) {
         this.coach = coach;
-        trainingsQuantity = 1;
     }
 
     @Override
@@ -16,8 +15,9 @@ public class CounterOfTrainings implements Comparable<CounterOfTrainings> {
         return trainingsQuantity - o.trainingsQuantity;
     }
 
-    public void incrementTrainQuantity() {
+    public CounterOfTrainings incrementTrainQuantity() {
         trainingsQuantity++;
+        return this;
     }
 
     @Override
