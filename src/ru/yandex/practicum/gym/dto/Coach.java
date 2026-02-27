@@ -3,9 +3,9 @@ package ru.yandex.practicum.gym.dto;
 import java.util.Objects;
 
 public class Coach {
-    private final String surname;
-    private final String name;
-    private final String middleName;
+    private String surname;
+    private String name;
+    private String middleName;
 
     public Coach(String surname, String name, String middleName) {
         this.surname = surname;
@@ -35,5 +35,29 @@ public class Coach {
                 ", name='" + name + '\'' +
                 ", middleName='" + middleName + '\'' +
                 '}';
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 }

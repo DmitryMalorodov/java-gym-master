@@ -4,13 +4,13 @@ import ru.yandex.practicum.gym.enums.DayOfWeek;
 
 public class TrainingSession {
     //группа
-    private final Group group;
+    private Group group;
     //тренер
-    private final Coach coach;
+    private Coach coach;
     //день недели
-    private final DayOfWeek dayOfWeek;
+    private DayOfWeek dayOfWeek;
     //время начала занятия
-    private final TimeOfDay timeOfDay;
+    private TimeOfDay timeOfDay;
 
     public TrainingSession(Group group, Coach coach, DayOfWeek dayOfWeek, TimeOfDay timeOfDay) {
         this.group = group;
@@ -19,15 +19,35 @@ public class TrainingSession {
         this.timeOfDay = timeOfDay;
     }
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
     public Coach getCoach() {
         return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
     }
 
     public DayOfWeek getDayOfWeek() {
         return dayOfWeek;
     }
 
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
     public TimeOfDay getTimeOfDay() {
         return timeOfDay;
+    }
+
+    public void setTimeOfDay(TimeOfDay timeOfDay) {
+        this.timeOfDay = timeOfDay;
     }
 }
