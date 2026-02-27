@@ -13,7 +13,7 @@ public class CounterOfTrainings implements Comparable<CounterOfTrainings> {
 
     @Override
     public int compareTo(CounterOfTrainings o) {
-        return o.trainingsQuantity - trainingsQuantity;
+        return trainingsQuantity - o.trainingsQuantity;
     }
 
     public void incrementTrainQuantity() {

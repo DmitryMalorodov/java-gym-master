@@ -96,6 +96,6 @@ public class Timetable {
 
         List<CounterOfTrainings> counterOfTrainings = new ArrayList<>(result.values().stream().toList());
         Collections.sort(counterOfTrainings);
-        return counterOfTrainings;
+        return counterOfTrainings.reversed();
     }
 }
