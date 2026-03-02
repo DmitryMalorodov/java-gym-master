@@ -16,8 +16,6 @@ public class Timetable {
      * - Если по дню недели добавляемой тренировки вернулся null, то создаем мапу
      * - Если по времени добавляемой тренировки вернулся null, то создаем список
      * - Добавляем в созданный список тренировку
-     * - Добавляем в созданную мапу созданный список по времени добавляемой тренировки
-     * - Кладем в целевую мапу timetable созданную мапу в данном методе по ключу дня недели
      * @param trainingSession - тренировчная сессия для добавления
      */
     public void addNewTrainingSession(TrainingSession trainingSession) {
@@ -26,13 +24,9 @@ public class Timetable {
             return;
         }
 
-        TreeMap<TimeOfDay, List<TrainingSession>> innerMap = timetable.getOrDefault(
-                trainingSession.getDayOfWeek(), new TreeMap<>());
-        List<TrainingSession> sessions = innerMap.getOrDefault(trainingSession.getTimeOfDay(), new ArrayList<>());
-
-        sessions.add(trainingSession);
-        innerMap.put(trainingSession.getTimeOfDay(), sessions);
-        timetable.put(trainingSession.getDayOfWeek(), innerMap);
+        timetable.computeIfAbsent(trainingSession.getDayOfWeek(), k -> new TreeMap<>())
+                .computeIfAbsent(trainingSession.getTimeOfDay(), k -> new ArrayList<>())
+                .add(trainingSession);
     }
 
     /**
