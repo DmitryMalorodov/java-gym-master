@@ -1,7 +1,8 @@
-package ru.yandex.practicum.gym;
+package ru.yandex.practicum.gym.dto;
+
+import ru.yandex.practicum.gym.enums.DayOfWeek;
 
 public class TrainingSession {
-
     //группа
     private Group group;
     //тренер
@@ -22,15 +23,31 @@ public class TrainingSession {
         return group;
     }
 
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
     public Coach getCoach() {
         return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
     }
 
     public DayOfWeek getDayOfWeek() {
         return dayOfWeek;
     }
 
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
     public TimeOfDay getTimeOfDay() {
         return timeOfDay;
+    }
+
+    public void setTimeOfDay(TimeOfDay timeOfDay) {
+        this.timeOfDay = timeOfDay;
     }
 }

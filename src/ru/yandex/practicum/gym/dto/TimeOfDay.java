@@ -1,4 +1,4 @@
-package ru.yandex.practicum.gym;
+package ru.yandex.practicum.gym.dto;
 
 import java.util.Objects;
 
@@ -37,7 +37,15 @@ public class TimeOfDay implements Comparable<TimeOfDay> {
         return hours;
     }
 
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
     public int getMinutes() {
         return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 }

@@ -1,14 +1,10 @@
-package ru.yandex.practicum.gym;
+package ru.yandex.practicum.gym.dto;
 
 import java.util.Objects;
 
 public class Coach {
-
-    //фамилия
     private String surname;
-    //имя
     private String name;
-    //отчество
     private String middleName;
 
     public Coach(String surname, String name, String middleName) {
@@ -22,7 +18,9 @@ public class Coach {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Coach coach = (Coach) o;
-        return Objects.equals(surname, coach.surname) && Objects.equals(name, coach.name) && Objects.equals(middleName, coach.middleName);
+        return Objects.equals(surname, coach.surname)
+                && Objects.equals(name, coach.name)
+                && Objects.equals(middleName, coach.middleName);
     }
 
     @Override
@@ -30,15 +28,36 @@ public class Coach {
         return Objects.hash(surname, name, middleName);
     }
 
+    @Override
+    public String toString() {
+        return "Coach{" +
+                "surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", middleName='" + middleName + '\'' +
+                '}';
+    }
+
     public String getSurname() {
         return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getMiddleName() {
         return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 }
